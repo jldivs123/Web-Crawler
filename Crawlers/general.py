@@ -6,4 +6,4 @@ def create_project_dir(directory):
         print('Creating a new project for ' + directory)
         os.makedirs(directory)
 
-create_project_dir('9gag')
+create_project_dir("./Websites/9gag")
