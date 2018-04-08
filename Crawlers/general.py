@@ -15,13 +15,13 @@ def create_data_file(project_name, base_url):
     crawled = dir + project_name + '/crawled.txt'
     if not os.path.isfile(queue):
         print('Creating queue file ', queue)
-        write_file(queue, base_url)
+        write_data(queue, base_url)
     if not os.path.isfile(crawled):
         print('Creating crawled file ', crawled)
-        write_file(crawled, '')
+        write_data(crawled, '')
 
 # Writes data into a queue and crawled file
-def write_file(path, data):
+def write_data(path, data):
     with open(path, 'w') as data_file:
         data_file.write(data)
 
@@ -29,7 +29,7 @@ def write_file(path, data):
 # Add links to the queue and crawled data_file
 def append_to_file(path, data):
     with open(path, 'a') as file:
-        file.write(data + '/n')
+        file.write(data + '\n')
 
 # Delete the contents of a file
 def delete_data(path):
