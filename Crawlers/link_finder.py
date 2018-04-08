@@ -4,9 +4,9 @@ from urllib import parse
 class LinkFinder(HTMLParser):
     def __init__(self, base_url, page_url):
         super().__init__()
-        super().base_url = base_url
-        super().page_url = url
-        super().links = set()
+        self.base_url = base_url
+        self.page_url = url
+        self.links = set()
 
     def handle_starttag(self, tag, attrs):
         if tag == 'a':
@@ -19,6 +19,7 @@ class LinkFinder(HTMLParser):
         return self.links
 
     def error(self, message):
+        print(message)
         pass
 
 finder = LinkFinder()
