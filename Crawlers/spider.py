@@ -44,7 +44,7 @@ class Spider:
         html_string = ''
         try:
             response = urllib.urlopen(page_url)
-            if response.getheader('Content-type')== "text/html" || response.getheader('Content-type') == 'text/html;charset=UTF-8'
+            if 'text/html' in response.getheader('Content-type'):
                 html_bytes = response.read()
                 html_string = html_bytes.decode("utf-8")
             finder = LinkFinder(Spider.base_url, page_url)
