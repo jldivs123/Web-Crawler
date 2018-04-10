@@ -39,7 +39,7 @@ def delete_data(path):
 # Converts the file to set
 def file_to_set(file_name):
     results = set()
-    with open(path, 'rt') as file:
+    with open(file_name, 'rt') as file:
         for line in file:
             results.add(line.strip('\n'))
         return results
