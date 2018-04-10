@@ -12,7 +12,7 @@ class LinkFinder(HTMLParser):
         if tag == 'a':
             for (attribute, value) in attrs:
                 if attribute == 'href':
-                    url = parse.urljoin(attribute)
+                    url = parse.urljoin(self.base_url, value)
                     self.links.add(url)
 
     def page_links(self):
@@ -21,6 +21,3 @@ class LinkFinder(HTMLParser):
     def error(self, message):
         print(message)
         pass
-
-finder = LinkFinder()
-finder.feed('<html><head></head></html>')
